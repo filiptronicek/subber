@@ -14,7 +14,7 @@ import (
 	"log"
 	"fmt"
 
-	"github.com/yourname/subber"
+	"github.com/filiptronicek/subber"
 )
 
 func main() {
