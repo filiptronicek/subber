@@ -11,24 +11,24 @@ When you want to use OIDC to control access to resources with services like AWS 
 package main
 
 import (
-	"log"
 	"fmt"
+	"log"
 
 	"github.com/filiptronicek/subber"
 )
 
 func main() {
 	// Create a new Subber with your desired delimiter and specify if the claim value should be URL-encoded
-	subber := subber.NewSubber("-", true)
+	s := subber.NewSubber("-", true)
 
 	// Create a set of Claim objects
 	claims := []subber.Claim{
-		{Type: "type1", Value: "value1"},
-		{Type: "type2", Value: "value2 with/special&characters"},
+		{Key: "type1", Value: "value1"},
+		{Key: "type2", Value: "value2 with/special&characters"},
 	}
 
 	// Use the PrepareClaim method of the Subber object to generate the claim string
-	claim, err := subber.PrepareClaim(claims...)
+	claim, err := s.PrepareClaim(claims...)
 	if err != nil {
 		log.Fatalf("Error preparing claim: %v", err)
 	}

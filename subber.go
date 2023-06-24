@@ -6,7 +6,7 @@ import (
 )
 
 type Claim struct {
-	Type  string
+	Key   string
 	Value string
 }
 
@@ -32,7 +32,7 @@ func (s *Subber) PrepareClaim(claims ...Claim) (string, error) {
 			encodedValue = url.QueryEscape(claim.Value)
 		}
 
-		parts = append(parts, claim.Type+s.Delimiter+encodedValue)
+		parts = append(parts, claim.Key+s.Delimiter+encodedValue)
 	}
 
 	return strings.Join(parts, s.Delimiter), nil
