@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-type SubClaimClaim struct {
+type Claim struct {
 	Type  string
 	Value string
 }
@@ -21,11 +21,11 @@ func NewSubber(delimiter string, encode bool) *Subber {
 	return &Subber{Delimiter: delimiter, Encode: encode}
 }
 
-// PrepareSubClaim generates the sub claim using the provided sub claims
-func (s *Subber) PrepareSubClaim(subClaims ...SubClaimClaim) (string, error) {
+// PrepareClaim generates the sub claim using the provided sub claims
+func (s *Subber) PrepareClaim(claims ...Claim) (string, error) {
 	var parts []string
 
-	for _, claim := range subClaims {
+	for _, claim := range claims {
 
 		encodedValue := claim.Value
 		if s.Encode {

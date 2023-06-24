@@ -4,11 +4,11 @@ import (
 	"testing"
 )
 
-func TestPrepareSubClaim(t *testing.T) {
+func TestPrepareClaim(t *testing.T) {
 	subber := NewSubber(":", true)
 
 	// Define a set of sub claims
-	subClaims := []SubClaimClaim{
+	subClaims := []Claim{
 		{Type: "repo", Value: "https://github.com/filiptronicek/configcat-pre-evaluate"},
 		{Type: "org_id", Value: "35ec3933-83ab-4324-ad36-d4a65d678245"},
 		{Type: "user_id", Value: "ceab0063-f688-4aaf-b053-8a0d158981f8"},
@@ -17,7 +17,7 @@ func TestPrepareSubClaim(t *testing.T) {
 	}
 
 	// Prepare the sub claim
-	subClaim, err := subber.PrepareSubClaim(subClaims...)
+	subClaim, err := subber.PrepareClaim(subClaims...)
 	if err != nil {
 		t.Fatalf("Unexpected error: %v", err)
 	}
