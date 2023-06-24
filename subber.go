@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Claim represents a single field inside of the claim
 type Claim struct {
 	Key   string
 	Value string
@@ -17,6 +18,7 @@ type Subber struct {
 	Encode bool
 }
 
+// NewSubber creates a new Subber object
 func NewSubber(delimiter string, encode bool) *Subber {
 	return &Subber{Delimiter: delimiter, Encode: encode}
 }
