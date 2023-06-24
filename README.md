@@ -18,14 +18,11 @@ import (
 )
 
 func main() {
-	// Import the subber package
-	// Replace "github.com/yourname/subber" with the actual path of your subber package
-
 	// Create a new Subber with your desired delimiter and specify if the claim value should be URL-encoded
 	subber := subber.NewSubber("-", true)
 
-	// Create a set of ClaimClaim objects
-	claims := []subber.ClaimClaim{
+	// Create a set of Claim objects
+	claims := []subber.Claim{
 		{Type: "type1", Value: "value1"},
 		{Type: "type2", Value: "value2 with/special&characters"},
 	}
